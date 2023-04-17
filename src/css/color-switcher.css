@@ -1,0 +1,35 @@
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+button:hover {
+background-color: black;
+    color: white;
+}
+
+
+a {
+    color: #333;
+    margin-bottom: 20px;
+    text-decoration: none;
+    max-width: 150px;
+    padding: 8px 12px;
+    border-radius: 320px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+}
