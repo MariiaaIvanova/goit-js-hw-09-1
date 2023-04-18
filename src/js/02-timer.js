@@ -12,8 +12,7 @@ const minutesOutput = document.querySelector('[data-minutes]');
 const secondsOutput = document.querySelector('[data-seconds]');
 
 let intervalId = null;
-
-dataStartBtn.disabled = 'disabled'
+dataStartBtn.disabled = 'disabled';
 
 const options = {
     enableTime: true,
@@ -34,7 +33,7 @@ const flatPickr = flatpickr(dateTimePicker, options);
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0')
-}
+};
 
 function convertMs(ms) {
   const second = 1000;
@@ -48,27 +47,28 @@ function convertMs(ms) {
   const secs = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
   return { days, hours, mins, secs };
-}
+};
+
 const timer = {
   start() {
       let selectedTime = flatPickr.selectedDates[0].getTime();
       let currentTime = Date.now()
-      timerId = setInterval(() => {
+    intervalId = setInterval(() => {
 
       currentTime = Date.now()
       const deltaTime = selectedTime - currentTime;
       const { days, hours, mins, secs } = convertMs(deltaTime);
 
-        daysOutput.textContent = days;
-        hoursOutput.textContent = hours;
-        minutesOutput.textContent = mins;
-        secondsOutput.textContent = secs;
+      daysOutput.textContent = days;
+      hoursOutput.textContent = hours;
+      minutesOutput.textContent = mins;
+      secondsOutput.textContent = secs;
 
-        if (deltaTime <= 1000) {
-          clearInterval(intervalId)
-        }
+      if (deltaTime <= 1000) {
+        clearInterval(intervalId)
+      }
 
-      }, 1000)
+    }, 1000);
 
 
     dataStartBtn.disabled = 'disabled'
